@@ -1,0 +1,31 @@
+Vault Deposit Possible Scenario
+
+Case i) 
+    User token === Destination token && Bridge Liquidity Optimal
+    => Deposit to destination vault without swap
+
+Case ii) 
+    User token !== Destination token && Bridge Liquidity Optimal && Swap Liquidity Optimal
+    => swap in source to destination token then bridge
+
+Case iii) 
+    Bridge Liquidity Not Optimal (in source)
+    => swap user token to optimal liquidity token
+    => bridge liquidity token 
+    => swap back liquidity token to user token
+    => deposit to a vault
+
+Case iv) 
+    Insufficient Swap Liquidity (in source)
+    => bridge user token to destination
+    => swap user token to destination token
+    => deposit swapped token to a vault
+
+
+So here is the flow i'm gonna achieve,
+  --> tokens + data send to destination 
+  --> mint vault shares on destination
+  --> send message about mint to source
+  --> mint synthetic positions on source
+
+State Date to be transferred.
